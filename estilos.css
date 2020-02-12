@@ -8,8 +8,8 @@ body{
 input[type=submit],
 input[type=button],
 input[type=file]{
-    background-color: rgb(142, 176, 238);
-    color: #FFF;
+    background-color: rgb(176, 197, 236);
+    color: rgb(252, 224, 224);
     text-transform: uppercase;
     font-weight: bolder;
     height: 32px;}
@@ -17,15 +17,15 @@ input[type=file]{
 input[type=submit]:hover,
 input[type=button]:hover,
 input[type=file]:hover{
-    color:  rgb(216, 216, 197);
-    background-color: #FFF;
+    color:  rgb(226, 241, 183);
+    background-color: rgb(245, 233, 233);
 }
 input[type=text]:invalid,
 input[type=date]:invalid,
 input[type=file]:invalid,
 input[type=url]:invalid,
 input[type=tel]:invalid{
-    background-color: rgb(183, 201, 176);
+    background-color: rgb(202, 240, 140);
     color: black;
 }
 input[type=text]:valid, /* Estilo para los input de tipo text, date y file */
@@ -33,6 +33,6 @@ input[type=date]:valid, /* Cuando es valido su contenido */
 input[type=file]:valid,
 input[type=url]:valid,
 input[type=tel]:valid{
-    background-color: rgb(16, 145, 57);
+    background-color: rgb(119, 230, 154);
     color: black;
 } 
