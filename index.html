@@ -4,41 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Estudiante Ciclo I 2020</title>
+    <title>Bienvenido a Programacion IV</title>
     <link rel="stylesheet" href="estilos.css">
 </head> 
 <body>
-    <div class="fondo">
-        <link rel="stylesheet" href="estilo.css">
-    </div>
-    
-    <h1>Estudiante Ciclo I 2020</h1>
-    <img src="img/logo.png"/>
-    
-    <h1>Formulario de Estudiante</h1>
+    <h1>Registro De docente</h1>
     <form name="frmControles" id="frmControles" method="get">
-        Nombre: <input type="text" pattern="[a-zA-ZñÑ ]{3,60}" required size="20" placeholder="Nombre"><br><br>
-        Subir Foto: <input required type="file" name="foto" id="foto"><br><br>
-        DUI: <input type="text" placeholder="00000000-0" pattern="[0-9]{8}-[0-9]{1}" required>
+        Nombre de docente: <input type="text" pattern="[a-zA-ZñÑ ]{3,60}" required size="25" placeholder="Nombre"><br><br>
+        Apellidos: <input type="text" pattern="[a-Za-ZñÑ]{3,60}" required size="20" placeholder="Apellidos"> <br><br>
         Fecha Nacimiento: <input type="date" required><br><br>
-        Tel: <input type="tel" required><br><br>
-        Email: <input type="email" name="correo" id="correo" placeholder="Ingrese su Correo" required><br><br>
+        tel:<input type="tel" required><br><br>
+        Usuario:<input type="usuario" pattern="[a-zA-ZnÑ]{3,60}" required size="20" placeholder="Usuario"> <br><br>
+        Contraseña:<input type="password" pattern="[a-zA-ZnÑ]{6,60}" required size="20" placeholder="Contraseña"> <br><br>
+        Email:<input type="email" pattern="[a-zA-ZnÑ]{3,60}" required size="20" placeholder="Email"> <br><br>
+        Email:<input type="email" pattern="[a-zA-ZnÑ]{3,60}" required size="20" placeholder="Email"> <br><br>
+        Status: 
+        <label for="soltero">soltero</label><input checked type="radio" name="cboStatus" id="soltero">
+        <label for="acompañado">acompañado</label><input type="radio" name="cboStatus" id="acompañado">
+        <label for="casado">casado</label><input type="radio" name="cboStatus" id="casado">
+        <label for="divorciado">divorciado</label><input type="radio" name="cboStatus" id="divorciado">
+        <label for="viudo">viudo</label><input type="radio" name="cboStatus" id="viudo"><br><br>
 
-        Carrera:<br><br> 
-        <label for="Ingenieria en Sistemas y Redes Informaticas">Ingenieria en Sistemas y Redes Informaticas</label><input type="radio" name="cbCarrera" id="Ingenieria en Sistemas y Redes Informaticas"><br><br>
-        <label for="Tecnico en Sistemas y Redes Informaticas">Tecnico en Sistemas y Redes Informaticas</label><input type="radio" name="cbCarrera" id="Tecnico en Sistemas y Redes Informaticas"><br><br>
-        <br><br>
-        Materias a Cursar:<br><br>
-            <label for="Ingenieria de Software">Ingenieria de Software</label><input type="checkbox" name="Ingenieria de Software" id="Ingenieria de Software"><br><br>
-            <label for="Sistemas de calidad">Sistemas de calidad</label><input type="checkbox" name="Sistemas de calidad" id="Sistemas de calidad"><br><br>
-            <label for="Redes">Redes</label><input type="checkbox" name="Redes" id="Redes"><br><br>
-            <label for="Base de datos I">Base de datos I</label><input type="checkbox" name="Base de datos I" id="Base de datos I"><br><br>
-            <label for="Sistemas Operativos">Sistemas Operativos</label><input type="checkbox" name="Sistemas Operativos" id="Sistemas Operativos"><br><br>
-            <label for="Programacion II">Programacion II</label><input type="checkbox" name="Programacion II" id="Programacion II">
-            <label for="Ingles basico">Ingles basico</label><input type="checkbox" name="Ingles basico" id="Ingles basico"><br><br>
-        
-
+        DUI: <input type="text" placeholder="00000000-0" pattern="[0-9]{8}-[0-9]{1}" required>
         <input type="submit" value="Guardar">
-    </form>
+
+    </form>  
+    
 </body>
 </html>
