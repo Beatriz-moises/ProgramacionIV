@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", e=>{
             telefono = document.querySelector("#txtTelefonoAlumno").value;
 
         console.log(codigo, nombre, direccion, telefono);
+        console.log(localStorage.getItem(codigo,nombre,direccion,telefono));
         
         if( 'localStorage' in window ){
             window.localStorage.setItem("codigo", codigo);
             window.localStorage.setItem("nombre", nombre);
             window.localStorage.setItem("direccion", direccion);
             window.localStorage.setItem("telefono", telefono);
+            
         } else {
             alert("Por favor ACTUALIZATE!!!.");
         }
@@ -26,4 +28,5 @@ document.addEventListener("DOMContentLoaded", e=>{
         document.querySelector("#txtDireccionAlumno").value = window.localStorage.getItem("direccion");
         document.querySelector("#txtTelefonoAlumno").value = window.localStorage.getItem("telefono");
     });
+    
 });

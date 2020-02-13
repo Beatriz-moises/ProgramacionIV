@@ -13,22 +13,26 @@
         <div class="container">
             <div class="fila">
                 <input type="text" id="txtCodigoAlumno" 
-                    required="required" placeholder="codigo" pattern="^[A-Z]{4}[0-9]{6}">
+                    required="required" placeholder="codigo" pattern="^[A-Z]{4}[0-9]{6}"><br><br>
             </div>
             <div class="fila">
                 <input type="text" id="txtNombreAlumno" required="required" 
-                    placeholder="Nombre" pattern="[a-zA-ZñÑ ]{3,65}">
+                    placeholder="Nombre" pattern="[a-zA-ZñÑ ]{3,65}"><br><br>
             </div>
             <div class="fila">
-                <input type="text" id="txtDireccionAlumno" required="required" placeholder="Direccion" >
+                <input type="text" id="txtDireccionAlumno" required="required" placeholder="Direccion" ><br><br>
             </div>
             <div class="fila">
                 <input type="text" id="txtTelefonoAlumno" required="required" 
-                    placeholder="Telefono" pattern="[0-9]{4}-[0-9]{4}">
+                    placeholder="Telefono" pattern="[0-9]{4}-[0-9]{4}"><br><br>
             </div>
             <div class="fila">
-                <input type="submit" value="Guardar">
-            </div>
+                
+                <input type="submit" value="Guardar"><br><br>
+                <input type="button" id="btnRecuperarAlumno" value="Recuperar"><br><br>
+                <input type="button" id="btnModificarAlumno" value="Modificar">
+           </div>
+                
         </div>
     </form>
     <script src="app.js"></script>
