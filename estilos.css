@@ -1,7 +1,13 @@
-*{
-    margin-top: 10px; 
-    margin-left: 150px;
-    
+h1{
+text-align: center;
+color: blanchedalmond;
+text-decoration-style: wavy;
+margin-top: 25px;
+
+}
+div{
+    margin-left: 155px;
+    margin-top: 10px;
 }
 body{
     background-image: url("fondo.jpg");/*imagen de fondo*/
