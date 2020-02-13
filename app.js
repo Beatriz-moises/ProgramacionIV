@@ -8,7 +8,16 @@ document.addEventListener("DOMContentLoaded", e=>{
             nombre = document.querySelector("#txtNombreAlumno").value,
             direccion = document.querySelector("#txtDireccionAlumno").value,
             telefono = document.querySelector("#txtTelefonoAlumno").value;
+            localStorage.setItem("codigo", codigo);
+            localStorage.setItem("nombre", nombre);
+            localStorage.setItem("direccion", direccion);
+            localStorage.setItem("direccion", telefono);
 
+            document.getElementById("txtCodigoAlumno").value = "";
+            document.getElementById("txtNombreAlumno").value = "";
+            document.getElementById("txtDirreccionAlumno").value = "";
+            document.getElementById("txtTelefonoAlumno").value = "";
+           
         console.log(codigo, nombre, direccion, telefono);
         console.log(localStorage.getItem(codigo,nombre,direccion,telefono));
         
