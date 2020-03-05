@@ -32,14 +32,12 @@ document.addEventListener("DOMContentLoaded", e=>{
             "Varas":1.1963081929167,
             "yarda":1.09361,
             "millanautica":0.00539957,
-            "k0": 0.001,
+            "km": 0.001,
             "milla": 0.000621337};
                
         let $res = document.querySelector("#lblRespuesta");
         if(opcion.value == "moneda"){
           $res.innerHTML = `Respuesta: ${ (monedas[a]/monedas[de]*cantidad).toFixed(2) }`;
-        } else if(opcion.value == "peso"){
-            $res.innerHTML = `Respuesta: ${ (peso[a]/peso[de]*cantidad).toFixed(2) }`;
         } else if(opcion.value == "almacenamiento"){
           $res.innerHTML = `Respuesta: ${ (almacenamiento[a]/almacenamiento[de]*cantidad) }`;
         } else if(opcion.value == "longitud"){
@@ -48,25 +46,23 @@ document.addEventListener("DOMContentLoaded", e=>{
     });
   });
   
-  //llenar los select box 
+  
   function elegir_opcion() {
     let opcion = document.getElementById('cboConvertir'),
     de1 = document.getElementById('cboDe'),
     a1 = document.getElementById('cboA');
-    //limpia antes de actualizar
+
     de1.value="";
     a1.value="";
     de1.innerHTML="";
     a1.innerHTML="";
   
     if(opcion.value == "moneda"){
-      var  array = ["dolar!Dolar","euro!Euro","quetzal!Quetzal","lempira!Lempira","cordoba!Cordoba","Bitcoin!Bitcoin","Balboa!Balboa","Lira Turca! Lira Turca","Yen Japones! Yen Japones"]; 
+      var  array = ["dolar!Dolar","colones(sv)! Colones(sv)","yenes! Yenes","rupia! Rupia","lempiras! Lempiras","peso(mx)! Peso(MX)","bitcoin! Bitcoint"]; 
     } else if(opcion.value == "longitud"){
-      var array = ["milimetro!Milimetro","centimetro!Centimetro","metro!Metro","kilometro!Kilometro","milla!Milla","yarda! Yarda","pie! Pie","pulgada! Pulgada","milla nautica! Milla nautica"];
+      var array = ["metro! Metro","cm! Cm","pulgada! Pulgada","pie! Pie", "varas! Varas","yardas! Yardas","km! Km","millas! Millas"];
     } else if(opcion.value == "almacenamiento"){
-      var array = ["bit!Bit","byte!Byte","kilobite!Kilobite","megabite!Megabite","nibble! Nibble","megabyte! Megabyte"];
-    } else if(opcion.value == "peso"){
-      var array = ["gramo!Gramo","kilogramo!Kilogramo","libra!Libra","onza!Onza","tonelada!Tonelada","miligramo! Miligramo","microgramo! Microgramo","stone! Stone","tonelada corta! Tonelada Corta","tonelada larga! Tonelada Larga"];
+      var array = ["megabyte! Megabyte","bit! Bit","kilobyte! Kilobyte","gigabyte! Gigabyte","terabyte! Terabyte"];
     };
   
     for(var i=0;i<array.length;i++){ 
