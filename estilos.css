@@ -5,6 +5,7 @@ body{
 body{
     background-image: url("fondo.jpg");
 }
+
 input, textarea{
     height: 24px;
     border: solid 1px rgb(158, 200, 255);
@@ -16,7 +17,6 @@ textarea{
 input[type=submit], 
 input[type=button]{
     background-color: rgb(74, 137, 255);
-    color: #FFF;
     text-transform: uppercase;
     height: 30px;
     width: auto;
