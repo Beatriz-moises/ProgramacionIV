@@ -34,11 +34,31 @@
                         <option value="lempira">Lempira</option>
                         <option value="cordoba">Cordoba</option>
                     </select>
+               
                 </div>
             </div>
             <div class="row row-cols-4 p-2">
+                <div class="col">
+                    DE: <select id="cboDe" class="form-control">
+                        <option value="libra">libra</option>
+                        <option value="onza">onza</option>
+                        <option value="gramo">Qgramo</option>
+                        <option value="kilogramo">kilogramo</option>
+                        <option value="tonelada">tonelada</option>
+                    </select>
+            </div>
+            <div class="col">
+                    A: <select id="cboA" class="form-control">
+                        <option value="libra">libra</option>
+                        <option value="onza">onza</option>
+                        <option value="gramo">gramo</option>
+                        <option value="kilogramo">kilogramo</option>
+                        <option value="tonelada">tonelada</option>
+                    </select>
+            </div>
+            <div class="row row-cols-4 p-2">
                 <div class="col text-center">
-                    <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="cantidad" id="txtCantidadConversores" class="form-control">
+                    <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="cantidad" id="txtCantidadConversores" class="form-control" >
                 </div>
                 <div class="col text-center">
                     <p class="bg-success text-white" id="lblRespuesta">Respuesta: ?</p>
