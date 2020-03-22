@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", event => {
         colocarVista(modulo);
     
     });
-}); 
+});  
  function colocarVista(modulo){
 
     fetch(`public/vistas/${modulo}/${modulo}.html`).then( resp => resp.text()).then( resp => {
