@@ -49,7 +49,7 @@ class materia{
                         codigo       = "'. $this->datos['codigo'] .'",
                         nombre       = "'. $this->datos['nombre'] .'"
                         descripcion  = "'. $this->datos['descripcion'] .'"
-                    WHERE idMateria = "'. $this->datos['idMateria'] .'"
+                    WHERE IdMateria = "'. $this->datos['IdMateria'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -57,17 +57,17 @@ class materia{
     }
     public function buscarMateria($valor = ''){
         $this->db->consultas('
-            select materias.idMateria, materias.codigo, materias.nombre, materias.descripcion
+            select materias.IdMateria, materias.codigo, materias.nombre, materias.descripcion
             from materias
             where materias.codigo like "%'. $valor .'%" or materias.nombre like "%'. $valor .'%"
         ');
         return $this->respuesta = $this->db->obtener_data();
     }
-    public function eliminarMateria($idMateria = 0){
+    public function eliminarMateria($IdMateria = 0){
         $this->db->consultas('
             DELETE materias
             FROM materias
-            WHERE materias.idMateria="'.$idMateria.'"
+            WHERE materias.IdMateria="'.$IdMateria.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
     }

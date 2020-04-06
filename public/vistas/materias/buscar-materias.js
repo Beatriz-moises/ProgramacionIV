@@ -16,8 +16,8 @@ var appBuscarMateria = new Vue({
             appmateria.materia = materia;
             appmateria.materia.accion = 'modificar';
         },
-        eliminarMateria:function(idMateria){
-            fetch(`private/modulos/materias/procesos.php?proceso=eliminarMateria&materia=${idMateria}`).then(resp=>resp.json()).then(resp=>{
+        eliminarMateria:function(IdMateria){
+            fetch(`private/modulos/materias/procesos.php?proceso=eliminarMateria&materia=${IdMateria}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarMateria();
             });
         }

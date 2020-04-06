@@ -14,8 +14,8 @@ var appBuscarAlumnos = new Vue({
             appalumno.alumno = alumno;
             appalumno.alumno.accion = 'modificar';
         },
-        eliminarAlumno:function(idAlumno){
-            fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp=>resp.json()).then(resp=>{
+        eliminarAlumno:function(IdAlumno){
+            fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${IdAlumno}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarAlumno();
             });
         }
