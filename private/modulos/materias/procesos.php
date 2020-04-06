@@ -1,13 +1,13 @@
 <?php 
 include('../../config/config.php');
-$docente = new materia($conexion);
+$materia = new materia($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$docente->$proceso( $_GET['docente'] );
-print_r(json_encode($docente->respuesta));
+$materia->$proceso( $_GET['materia'] );
+print_r(json_encode($materia->respuesta));
 
 class materia{
     private $datos = array(), $db;
@@ -27,6 +27,9 @@ class materia{
         if( empty($this->datos['nombre']) ){
             $this->respuesta['msg'] = 'por favor ingrese el nombre de la materia';
         }
+        if( empty($this->datos['descripcion']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la descripcion de la materia';
+        }
         $this->almacenar_materia();
     }
     private function almacenar_materia(){
@@ -36,7 +39,7 @@ class materia{
                     INSERT INTO materias (codigo,nombre,descripcion) VALUES(
                         "'. $this->datos['codigo'] .'",
                         "'. $this->datos['nombre'] .'",
-                        "'. $this->datos['descripcion'] .'",
+                        "'. $this->datos['descripcion'] .'"
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
@@ -44,8 +47,8 @@ class materia{
                 $this->db->consultas('
                     UPDATE materias SET
                         codigo       = "'. $this->datos['codigo'] .'",
-                        nombre       = "'. $this->datos['nombre'] .'",
-                        descripcion  = "'. $this->datos['descripcion'] .'",
+                        nombre       = "'. $this->datos['nombre'] .'"
+                        descripcion  = "'. $this->datos['descripcion'] .'"
                     WHERE idMateria = "'. $this->datos['idMateria'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
@@ -54,7 +57,7 @@ class materia{
     }
     public function buscarMateria($valor = ''){
         $this->db->consultas('
-            select materias.idMateria, materias.codigo, materias.nombre, materia.descripcion,
+            select materias.idMateria, materias.codigo, materias.nombre, materias.descripcion
             from materias
             where materias.codigo like "%'. $valor .'%" or materias.nombre like "%'. $valor .'%"
         ');
