@@ -1,13 +1,13 @@
 <?php 
 include('../../config/config.php');
-$alumnos = new alumno($conexion);
+$alumno = new alumno($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$alumnos->$proceso( $_GET['alumnos'] );
-print_r(json_encode($alumnos->respuesta));
+$alumno->$proceso( $_GET['alumno'] );
+print_r(json_encode($alumno->respuesta));
 
 class alumno{
     private $datos = array(), $db;
@@ -16,8 +16,8 @@ class alumno{
     public function __construct($db){
         $this->db=$db;
     }
-    public function recibirDatos($alumnos){
-        $this->datos = json_decode($alumnos, true);
+    public function recibirDatos($alumno){
+        $this->datos = json_decode($alumno, true);
         $this->validar_datos();
     }
     private function validar_datos(){
@@ -51,7 +51,7 @@ class alumno{
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
                         telefono   = "'. $this->datos['telefono'] .'"
-                    WHERE IdAlumnos = "'. $this->datos['IdAlumnos'] .'"
+                    WHERE idAlumno = "'. $this->datos['idAlumno'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -59,18 +59,21 @@ class alumno{
     }
     public function buscarAlumno($valor = ''){
         $this->db->consultas('
-            select alumnos.IdAlumnos, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
+            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
             from alumnos
             where alumnos.codigo like "%'. $valor .'%" or alumnos.nombre like "%'. $valor .'%"
         ');
         return $this->respuesta = $this->db->obtener_data();
     }
-    public function eliminarAlumno($IdAlumnos = 0){
+    public function eliminarAlumno($idAlumno = 0){
         $this->db->consultas('
             DELETE alumnos
             FROM alumnos
-            WHERE alumnos.IdAlumnos="'.$IdAlumnos.'"
+            WHERE alumnos.idAlumno="'.$idAlumno.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
-     }
-}?>
+            }
+        }
+    
+
+?>
