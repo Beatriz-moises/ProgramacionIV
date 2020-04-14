@@ -2,7 +2,7 @@ var appalumno = new Vue({
     el:'#frm-alumnos',
     data:{
         alumno:{
-            IdAlumnos  : 0,
+            idAlumno  : 0,
             accion    : 'nuevo',
             codigo    : '',
             nombre    : '',
@@ -13,9 +13,9 @@ var appalumno = new Vue({
     },
     methods:{
         guardarAlumno:function(){
-            fetch(`private/Modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(this.alumno)}`).then( resp=>resp.json() ).then(resp=>{
+            fetch(`private/modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(this.alumno)}`).then( resp=>resp.json() ).then(resp=>{
                 this.alumno.msg = resp.msg;
-                this.alumno.IdAlumnos = 0;
+                this.alumno.idAlumno = 0;
                 this.alumno.codigo = '';
                 this.alumno.nombre = '';
                 this.alumno.direccion = '';
@@ -26,3 +26,6 @@ var appalumno = new Vue({
         }
     }
 });
+
+    
+    

@@ -1,9 +1,9 @@
-<<form v-on:submit.prevent="guardarAlumno" data-accion="nuevo" data-IdAlumno='' Id="frm-alumnos" method="post">
+<form v-on:submit.prevent="guardarAlumno" data-accion="nuevo" data-idalumno='' id="frm-alumnos" method="post">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
             Mantenimiento Alumnos
         
-            <button type="button" Id="btn-close-alumnos" class="close" aria-label="Close">
+            <button type="button" id="btn-close-alumnos" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="row p-2"> 
                 <div class="col-12 text-center">
-                    <input Id="btnGuardarAlumnos" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
+                    <input id="btnGuardarAlumnos" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
                     <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
                     <input type="button" class="btn btn-outline-success mostrar-buscar-alumnos text-white" data-modulo="alumnos" data-form="buscar-alumnos" value="Buscar">
                 </div>
