@@ -5,22 +5,22 @@ var appBuscarAlumnos = new Vue({
         valor:''
     },
     methods:{
-        buscarAlumnos:function(){
-            fetch(`private/modulos/alumnos/procesos.php?proceso=buscarAlumno&alumnos=${this.valor}`).then(resp=>resp.json()).then(resp=>{
+        buscarAlumno:function(){
+            fetch(`private/modulos/alumnos/procesos.php?proceso=buscarAlumno&alumno=${this.valor}`).then(resp=>resp.json()).then(resp=>{
                 this.misalumnos = resp;
             });
         },
-        modificarAlumno:function(alumnos){
-            appalumnos.alumnos = alumnos;
-            appalumnos.alumnos.accion = 'modificar';
+        modificarAlumno:function(alumno){
+            appalumno.alumno = alumno;
+            appalumno.alumno.accion = 'modificar';
         },
-        eliminarAlumno:function(IdAlumnos){
-            fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumnos=${IdAlumnos}`).then(resp=>resp.json()).then(resp=>{
-                this.buscarAlumnos();
+        eliminarAlumno:function(idAlumno){
+            fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp=>resp.json()).then(resp=>{
+                this.buscarAlumno();
             });
         }
     },
     created:function(){
-        this.buscarAlumnos();
+        this.buscarAlumno();
     }
 });
