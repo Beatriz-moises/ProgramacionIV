@@ -1,15 +1,15 @@
 <?php 
 include('../../config/config.php');
-$alumnos = new alumno($conexion);
+$alumnos = new alumnos($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$alumnos->$proceso( $_GET['alumno'] );
-print_r(json_encode($alumno->respuesta));
+$alumnos->$proceso( $_GET['alumnos'] );
+print_r(json_encode($alumnos->respuesta));
 
-class alumno{
+class alumnos{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>'correcto'];
     
