@@ -1,8 +1,8 @@
-var appalumno = new Vue({
+var appalumnos = new Vue({
     el:'#frm-alumnos',
     data:{
-        alumno:{
-            idAlumno  : 0,
+        alumnos:{
+            IdAlumno  : 0,
             accion    : 'nuevo',
             codigo    : '',
             nombre    : '',
