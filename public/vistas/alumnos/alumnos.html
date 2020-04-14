@@ -1,41 +1,60 @@
-<form method="post" id="frm-buscar-alumnos">
-    <div class="card text-white bg-dark mb-3" style="max-width: 48rem;">
+<form v-on:submit.prevent="guardarAlumno" data-accion="nuevo" data-idalumno='' id="frm-alumnos" method="post">
+    <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
-            BUSQUEDA DE ALUMNOS
-
-            <button type="button" id="btn-close-buscar-alumnos" class="close" aria-label="Close">
+            Mantenimiento Alumnos
+        
+            <button type="button" id="btn-close-alumnos" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="card-body">
-            <table id="tbl-buscar-alumnos" class="table-striped table-dark table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th colspan="5">
-                            <input type="text" v-model="valor" v-on:keyup="buscarAlumnos" placeholder="codigo o nombre" class="form-control">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>CODIGO</th>
-                        <th>NOMBRE</th>
-                        <th>DIRECCION</th>
-                        <th>TELEFONO</th> 
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="mi_alumno in mis_alumnos" :key="mi_alumno.idAlumno" v-on:click="modificarAlumno(mi_alumno)" >
-                        <td>{{ mi_alumno.codigo }}</td>
-                        <td>{{ mi_alumno.nombre }}</td>
-                        <td>{{ mi_alumno.direccion }}</td>
-                        <td>{{ mi_alumno.telefono }}</td>
-                        <td>
-                            <input v-on:click="eliminarAlumno(mi_alumno.idAlumno)" type="button" class="btn btn-outline-danger text-white" value="del">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row p-2">
+                <div class="col-4">
+                    CODIGO
+                </div>
+                <div class="col-6">
+                    <input type="text" v-model="alumno.codigo" placeholder="AAAA000000" class="form-control">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-4">
+                    NOMBRE
+                </div>
+                <div class="col-8">
+                    <input type="text" v-model="alumno.nombre" placeholder="AAA AAA" class="form-control">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-4">
+                    DIRECCION
+                </div>
+                <div class="col-8">
+                    <input type="text" v-model="alumno.direccion" placeholder="AAA" class="form-control">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-4">
+                    TEL
+                </div>
+                <div class="col-8">
+                    <input type="text" v-model="alumno.telefono" placeholder="0000-0000" class="form-control">
+                </div>
+            </div>
+            <div class="row p-2"> 
+                <div class="col-12 text-center">
+                    <input id="btnGuardarAlumnos" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
+                    <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
+                    <input type="button" class="btn btn-outline-success mostrar-buscar-alumnos text-white" data-modulo="alumnos" data-form="buscar-alumnos" value="Buscar">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-12 text-center">
+                    <div class="alert alert-success" role="alert">
+                        {{ alumno.msg }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </form>
-<script src="public/vistas/alumnos/buscar-alumnos.js"></script>
+<script src="public/vistas/alumnos/alumnos.js"></script>
