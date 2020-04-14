@@ -62,7 +62,7 @@ class docentes{
             }
         }
     }
-    public function buscarDocente($valor = ''){
+    public function buscarDocentes($valor = ''){
         $this->db->consultas('
             select docentes.IdDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.DUI
             from docentes
