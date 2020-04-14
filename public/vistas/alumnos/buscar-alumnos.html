@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="estudiante in misalumnos" :key="estudiante.IdAlumnos" v-on:click="modificarAlumno(estudiante)">
+                    <tr v-for="estudiante in misalumnos" :key="alumnos.IdAlumnos" v-on:click="modificarAlumno(estudiante)">
                         <td>{{ estudiante.codigo }}</td>
                         <td>{{ estudiante.nombre }}</td>
                         <td>{{ estudiante.direccion }}</td>
