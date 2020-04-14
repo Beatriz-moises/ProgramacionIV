@@ -72,8 +72,5 @@ class alumno{
             WHERE alumnos.IdAlumnos="'.$IdAlumnos.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
-            }
-        }
-    
-
-?>
+     }
+}?>
