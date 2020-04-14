@@ -1,6 +1,6 @@
 <?php 
 include('../../config/config.php');
-$alumnos = new alumnos($conexion);
+$alumnos = new alumno($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
@@ -9,7 +9,7 @@ if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 $alumnos->$proceso( $_GET['alumnos'] );
 print_r(json_encode($alumnos->respuesta));
 
-class alumnos{
+class alumno{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>'correcto'];
     
@@ -51,7 +51,7 @@ class alumnos{
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
                         telefono   = "'. $this->datos['telefono'] .'"
-                    WHERE idAlumnos = "'. $this->datos['idAlumnos'] .'"
+                    WHERE IdAlumnos = "'. $this->datos['IdAlumnos'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -59,17 +59,17 @@ class alumnos{
     }
     public function buscarAlumno($valor = ''){
         $this->db->consultas('
-            select alumnos.idAlumnos, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
+            select alumnos.IdAlumnos, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
             from alumnos
             where alumnos.codigo like "%'. $valor .'%" or alumnos.nombre like "%'. $valor .'%"
         ');
         return $this->respuesta = $this->db->obtener_data();
     }
-    public function eliminarAlumno($idAlumnos = 0){
+    public function eliminarAlumno($IdAlumnos = 0){
         $this->db->consultas('
             DELETE alumnos
             FROM alumnos
-            WHERE alumnos.idAlumnos="'.$idAlumnos.'"
+            WHERE alumnos.IdAlumnos="'.$IdAlumnos.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
             }
