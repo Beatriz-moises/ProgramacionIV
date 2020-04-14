@@ -1,12 +1,12 @@
 <?php 
 include('../../config/config.php');
-$alumno = new alumno($conexion);
+$alumnos = new alumno($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$alumno->$proceso( $_GET['alumno'] );
+$alumnos->$proceso( $_GET['alumno'] );
 print_r(json_encode($alumno->respuesta));
 
 class alumno{
@@ -16,8 +16,8 @@ class alumno{
     public function __construct($db){
         $this->db=$db;
     }
-    public function recibirDatos($alumno){
-        $this->datos = json_decode($alumno, true);
+    public function recibirDatos($alumnos){
+        $this->datos = json_decode($alumnos, true);
         $this->validar_datos();
     }
     private function validar_datos(){
