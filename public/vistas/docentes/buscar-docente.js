@@ -14,8 +14,8 @@ var appBuscarDocentes = new Vue({
             appdocente.docente = docente;
             appdocente.docente.accion = 'modificar';
         },
-        eliminarDocente:function(IdDocente){
-            fetch(`private/modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${IdDocente}`).then(resp=>resp.json()).then(resp=>{
+        eliminarDocente:function(idDocente){
+            fetch(`private/modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${idDocente}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarDocente();
             });
         }

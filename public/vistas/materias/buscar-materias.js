@@ -1,5 +1,5 @@
   
-var appBuscarMateria = new Vue({
+var appBuscarMaterias = new Vue({
     el:'#frm-buscar-materias',
     data:{
         mismaterias:[],
@@ -8,7 +8,6 @@ var appBuscarMateria = new Vue({
     methods:{
         buscarMateria:function(){
             fetch(`private/modulos/materias/procesos.php?proceso=buscarMateria&materia=${this.valor}`).then(resp=>resp.json()).then(resp=>{
-               //console.log(resp);
                 this.mismaterias = resp;
             });
         },
@@ -16,8 +15,8 @@ var appBuscarMateria = new Vue({
             appmateria.materia = materia;
             appmateria.materia.accion = 'modificar';
         },
-        eliminarMateria:function(IdMateria){
-            fetch(`private/modulos/materias/procesos.php?proceso=eliminarMateria&materia=${IdMateria}`).then(resp=>resp.json()).then(resp=>{
+        eliminarMateria:function(idMateria){
+            fetch(`private/modulos/materias/procesos.php?proceso=eliminarMateria&materia=${idMateria}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarMateria();
             });
         }

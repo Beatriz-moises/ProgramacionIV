@@ -2,7 +2,7 @@ var appMateria = new Vue({
     el:'#frm-materias',
     data:{
         materia :{
-            IdMateria   : 0,
+            idMateria   : 0,
             accion      : 'nuevo',
             codigo      : '',
             nombre      : '',
@@ -14,7 +14,7 @@ var appMateria = new Vue({
         guardarMateria :function(){
             fetch(`private/modulos/materias/procesos.php?proceso=recibirDatos&materia=${JSON.stringify(this.materia)}`).then( resp=>resp.json() ).then(resp=>{
                 this.materia .msg = resp.msg;
-                this.materia .IdMateria = 0;
+                this.materia .idMateria = 0;
                 this.materia .codigo = '';
                 this.materia .nombre = '';
                 this.materia .descripcion = '';

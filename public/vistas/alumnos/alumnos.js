@@ -26,5 +26,3 @@ var appalumno = new Vue({
         }
     }
 });
-    
-    

@@ -1,23 +1,23 @@
 <?php 
 include('../../config/config.php');
-$docentes = new docentes($conexion);
+$docente = new docente($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$docentes->$proceso( $_GET['docentes'] );
-print_r(json_encode($docentes->respuesta));
+$docente->$proceso( $_GET['docente'] );
+print_r(json_encode($docente->respuesta));
 
-class docentes{
+class docente{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>'correcto'];
     
     public function __construct($db){
         $this->db=$db;
     }
-    public function recibirDatos($docentes){
-        $this->datos = json_decode($docentes, true);
+    public function recibirDatos($docente){
+        $this->datos = json_decode($docente, true);
         $this->validar_datos();
     }
     private function validar_datos(){
@@ -56,25 +56,25 @@ class docentes{
                         direccion  = "'. $this->datos['direccion'] .'",
                         telefono   = "'. $this->datos['telefono'] .'"
                         DUI        = "'. $this->datos['DUI'] .'"
-                    WHERE IdDocente = "'. $this->datos['IdDocente'] .'"
+                    WHERE idDocente = "'. $this->datos['idDocente'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
     }
-    public function buscarDocentes($valor = ''){
+    public function buscarDocente($valor = ''){
         $this->db->consultas('
-            select docentes.IdDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.DUI
+            select docentes.idDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.DUI
             from docentes
             where docentes.codigo like "%'. $valor .'%" or docentes.DUI like "%'. $valor .'%"
         ');
         return $this->respuesta = $this->db->obtener_data();
     }
-    public function eliminarDocente($IdDocente = 0){
+    public function eliminarDocente($idDocente = 0){
         $this->db->consultas('
             DELETE docentes
             FROM docentes
-            WHERE docentes.IdDocente="'.$IdDocente.'"
+            WHERE docentes.idDocente="'.$idDocente.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
     }
