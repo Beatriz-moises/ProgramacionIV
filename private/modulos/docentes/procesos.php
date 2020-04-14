@@ -1,23 +1,23 @@
 <?php 
 include('../../config/config.php');
-$docente = new docente($conexion);
+$docentes = new docentes($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$docente->$proceso( $_GET['docente'] );
-print_r(json_encode($docente->respuesta));
+$docentes->$proceso( $_GET['docentes'] );
+print_r(json_encode($docentes->respuesta));
 
-class docente{
+class docentes{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>'correcto'];
     
     public function __construct($db){
         $this->db=$db;
     }
-    public function recibirDatos($docente){
-        $this->datos = json_decode($docente, true);
+    public function recibirDatos($docentes){
+        $this->datos = json_decode($docentes, true);
         $this->validar_datos();
     }
     private function validar_datos(){
@@ -64,7 +64,7 @@ class docente{
     }
     public function buscarDocente($valor = ''){
         $this->db->consultas('
-            select docentes.IdDocentes, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.DUI
+            select docentes.IdDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.DUI
             from docentes
             where docentes.codigo like "%'. $valor .'%" or docentes.DUI like "%'. $valor .'%"
         ');
