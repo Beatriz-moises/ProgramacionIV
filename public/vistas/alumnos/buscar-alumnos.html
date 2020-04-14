@@ -24,13 +24,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="estudiante in misalumnos" :key="estudiante.IdAlumno" v-on:click="modificarAlumno(estudiante)">
+                    <tr v-for="estudiante in misalumnos" :key="estudiante.IdAlumnos" v-on:click="modificarAlumno(estudiante)">
                         <td>{{ estudiante.codigo }}</td>
                         <td>{{ estudiante.nombre }}</td>
                         <td>{{ estudiante.direccion }}</td>
                         <td>{{ estudiante.telefono }}</td>
                         <td>
-                            <input v-on:click="eliminarAlumno(estudiante.idAlumno)" type="button" class="btn btn-outline-danger text-white" value="del">
+                            <input v-on:click="eliminarAlumno(estudiante.IdAlumnos)" type="button" class="btn btn-outline-danger text-white" value="del">
                         </td>
                     </tr>
                 </tbody>
