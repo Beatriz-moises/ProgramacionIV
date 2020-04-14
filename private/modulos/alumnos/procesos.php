@@ -30,9 +30,9 @@ class alumno{
         if( empty($this->datos['direccion']) ){
             $this->respuesta['msg'] = 'por favor ingrese la direccion del estudiante';
         }
-        $this->almacenar_alumno();
+        $this->almacenar_alumnos();
     }
-    private function almacenar_alumno(){
+    private function almacenar_alumnos(){
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
@@ -51,25 +51,25 @@ class alumno{
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
                         telefono   = "'. $this->datos['telefono'] .'"
-                    WHERE IdAlumno = "'. $this->datos['IdAlumno'] .'"
+                    WHERE IdAlumnos = "'. $this->datos['IdAlumnos'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
     }
-    public function buscarAlumno($valor=''){
+    public function buscarAlumnos($valor=''){
         $this->db->consultas('
-            select alumnos.IdAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
+            select alumnos.IdAlumnos, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
             from alumnos
             where alumnos.codigo like "%'.$valor.'%" or alumnos.nombre like "%'.$valor.'%"
         ');
         return $this->respuesta = $this->db->obtener_datos();
     }
-    public function eliminarAlumno($IdAlumno=''){
+    public function eliminarAlumno($IdAlumnos=''){
         $this->db->consultas('
             delete alumnos
             from alumnos
-            where alumnos.IdAlumno = "'.$IdAlumno.'"
+            where alumnos.IdAlumnos = "'.$IdAlumnos.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
