@@ -6,8 +6,10 @@ var appBuscarAlumnos = new Vue({
     },
     methods:{
         buscarAlumno:function(){
-            fetch(`private/modulos/alumnos/procesos.php?proceso=buscarAlumno&alumno=${this.valor}`).then(resp=>resp.json()).then(resp=>{
+            fetch(`private/modulos/alumnos/procesos.php?proceso=buscarAlumno&alumno=${this.
+                valor}`).then(resp=>resp.json()).then(resp=>{
                 this.misalumnos = resp;
+                console.log(resp);
             });
         },
         modificarAlumno:function(alumno){
